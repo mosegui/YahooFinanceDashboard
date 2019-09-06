@@ -1,0 +1,1 @@
+here is where databases downloaded and edited will be stored (one database per yahoo ticker)
