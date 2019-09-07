@@ -12,6 +12,7 @@ import logging
 
 from YahooFinanceDashboard import data_io as io
 from YahooFinanceDashboard import plots
+from YahooFinanceDashboard._data_io.database_manager import TickersBrowser
 
 
 logger = logging.getLogger(__name__)
@@ -32,3 +33,10 @@ class Historical:
 
     def plot(self, plot_type='candlestick'):
         self.price_axes, self.volume_axes = plots.plot_prices(self.data, plot_type=plot_type)
+
+
+def search_tickers(**kwargs):
+    """Wrapper around the function in database_manager.TickersBrowser for the
+    user now having to acess private functions in private modules
+    """
+    return TickersBrowser._search_tickers(**kwargs)  # TODO: create a signature by hand to enforce *args and **kwargs
