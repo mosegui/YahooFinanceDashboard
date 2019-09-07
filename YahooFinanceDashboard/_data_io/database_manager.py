@@ -60,7 +60,11 @@ def get_db_location(db_name):
     db_filename = f"{db_name}.sqlite"
 
     matching_files = []
-    for root, dirs, files in os.walk(os.getcwd()): # os.path.join('..', os.path.dirname(__file__))
+
+    for root, dirs, files in os.walk(os.path.abspath(os.path.dirname(__file__))):
+        if '__pycache__' in root:
+            continue
+
         if db_filename in files:
             matching_files.append(os.path.join(root, db_filename))
     if len(matching_files) > 1:
