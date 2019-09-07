@@ -5,18 +5,23 @@ Written by Daniel Moseguí González
 GitHub: user:mosegui
 LinkedIn: https://www.linkedin.com/in/daniel-moseguí-gonzález-5aa02849/
 """
+import logging
+
+import numpy as np
 import matplotlib.style
+import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import mpl_finance as fnc
-import logging
-import numpy as np
+from pandas.plotting import register_matplotlib_converters
 
 from YahooFinanceDashboard._plots import _plots_axes
+
 
 logger = logging.getLogger(__name__)
 
 
 matplotlib.style.use('ggplot')
+register_matplotlib_converters()
 
 def plot_prices(input_data, plot_type='candlestick'):
     """Plots the stocks prices day-wise and the traded volume from the inbound data
@@ -48,11 +53,12 @@ def plot_prices(input_data, plot_type='candlestick'):
         fnc.plot_day_summary_ohlc(price_axes, np.array(plot_data[sequence]), colorup='darkgreen')
     elif plot_type == 'close':
         price_axes.plot(plot_data.Date, plot_data.Adj_Close, color='k', linewidth=1)
-        # price_axes.scatter(plot_data.Date, plot_data.Adj_Close, color='k', s=5)
     else:
         logger.error('invalid plot_type')
         raise ValueError('invalid plot_type')
 
     volume_axes.bar(plot_data.Date, plot_data.Volume, color='royalblue')
+
+    plt.show()
 
     return price_axes, volume_axes
