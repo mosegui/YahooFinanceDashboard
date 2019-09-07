@@ -47,11 +47,11 @@ def plot_prices(input_data, plot_type='candlestick'):
 
     price_axes, volume_axes = _plots_axes.get_pricevolume_axes()
 
-    if plot_type == 'candlestick':
+    if plot_type.lower() == 'candlestick':
         fnc.candlestick_ohlc(price_axes, np.array(plot_data[sequence]), width=0.75, colorup='darkgreen')
-    elif plot_type == 'ohlc':
+    elif plot_type.lower() == 'ohlc':
         fnc.plot_day_summary_ohlc(price_axes, np.array(plot_data[sequence]), colorup='darkgreen')
-    elif plot_type == 'close':
+    elif plot_type.lower() == 'close':
         price_axes.plot(plot_data.Date, plot_data.Adj_Close, color='k', linewidth=1)
     else:
         logger.error('invalid plot_type')
