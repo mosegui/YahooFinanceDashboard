@@ -4,11 +4,11 @@ API for accessing, synchronizing, managing locally and plotting Yahoo financial 
 
 ## Description
 
-This Dashboard uses Yahoo ticker symbols for identifying financial securities and fetches the available historical data from Yahoo servers. The downloaded data is returned in the form of a Pandas DataFrame (Open, Close, High, Low, Adj_Close, Volume). The downloaded data is stored locally in a series of SQL databases for allowing offline work with known data. When working online with new data flowing in, the Dashboard constantly compares the inbound data with the local copy and keeps updating the SQL databases appending the new points.
+This Dashboard uses Yahoo ticker symbols for identifying financial securities and fetches the available historical data from Yahoo servers. The downloaded data is returned in the form of a data object wrapping a Pandas DataFrame (Fields: Open, Close, High, Low, Adj_Close, Volume). The downloaded data is stored locally in a series of SQL databases for allowing offline work with known data. When working online with new data flowing in, the Dashboard constantly compares the inbound data with the local copy and keeps updating the SQL databases appending the new points.
 
-The Dashboard presents as well some simple tools/functionalities for requesting filtered data, as well as for rendering different types of financial plots (close, ohlc, candlestick) as well as a basic service for searching Yahoo ticker symbols.
+The returned data object upon data request offers as well some simple tools/functionalities for requesting filtered data, as well as for rendering different types of financial plots (close, ohlc, candlestick).
 
-The database of available Yahoo ticker symbol gets updated periodically with information of securities in all exchanges worldwide.
+The module offers as well a separate basic service for searching and filtering Yahoo ticker symbols by ticker symbol, security name, exchage, type of security, and more. The database of available Yahoo ticker symbols in which the search is carried out gets updated periodically with information of securities in most exchanges worldwide.
 
 ## Getting Started
 
@@ -26,13 +26,15 @@ pip install YahooFinanceDashboard
 
 ### Basic Usage
 
-Requesting data:
+Requesting data: Interaction with the data happens mainly over the ```YahooFinanceDashboard.Historical()``` object.
 
 ```
 >>> import datetime as dt
->>> from YahooFinanceDashboard import data_io as io
+>>> import YahooFinanceDashboard as yfd
+>>>
 >>> yahoo_ticker = 'AAPL'
->>> data = io.input_data(yahoo_ticker, start=dt.datetime(2016, 2, 16), end=dt.datetime.today())
+>>>
+>>> data = yfd.Historical(yahoo_ticker, start=dt.datetime(2016, 2, 16), end=dt.datetime.today())
 >>> print(data.head())
                  Open       High        Low      Close  Adj_Close      Volume
 Date                                                                         
@@ -46,7 +48,9 @@ Date
 Plotting data:
 
 ```
-plots.plot_prices(data, plot_type='candlestick')
+>>> data.plot_prices()
+>>> data.plot_prices(plot_type='ohlc')
+>>> data.plot_prices(plot_type='close')
 ```
 
 Searching for tickers:
