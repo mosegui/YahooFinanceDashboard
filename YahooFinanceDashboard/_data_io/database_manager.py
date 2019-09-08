@@ -327,26 +327,3 @@ class DBManager:
 
             with _connect_db(self.database_dir, self.yahoo_ticker) as db:
                 historical.to_sql('HIST_PRICES', db, if_exists='replace')
-
-    def _get_price_slices_for_missing_rows(self, rows):
-        """Returns a list of arrays retrieved from all data available
-        in the proce database each array up to the timestamps in each
-        of the passed "rows"
-
-        Parameters
-        ----------
-        rows : list
-            list of timestamps to be compared with the all_data index
-
-        Return
-        ------
-        list
-            list of np.arrays with the closing stock prices. Each array in
-            the list ranges from the very first price entry stored in the db
-            to the timestamp corresponding to each "row"
-        """
-        all_data = self.retrieve_prices_db().astype(float)
-
-        row_indices = [all_data.index.get_loc(row) for row in rows]
-
-        return [all_data['Adj_Close'].iloc[:i] for i in row_indices]
