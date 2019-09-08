@@ -26,7 +26,7 @@ class Historical:
         self.year = year
         self. month = month
 
-        self.data = io.input_data(self.yahoo_ticker, self. start,  self.end, self.year, self. month)
+        self.data = io.input_data(self.yahoo_ticker, self. start,  self.end, self.year, self.month)
 
     def __repr__(self):
         return repr(self.data)
