@@ -63,7 +63,8 @@ coverage.xml
 !__last_update.log
 local_settings.py
 *.sqlite3
-!__dummy.sqlite3
+*.sqlite
+!__dummy.sqlite
 
 # Flask stuff:
 instance/
