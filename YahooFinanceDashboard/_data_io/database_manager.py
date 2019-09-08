@@ -261,7 +261,6 @@ class DBManager:
 
         with _connect_db(self.database_dir, self.yahoo_ticker) as db:
             all_prices.to_sql('HIST_PRICES', db, if_exists='replace')
-            # db.execute('''CREATE TABLE GUIDELINES_SUMMARY(name TEXT, timescale INT, guideline_type TEXT)''')
             db.commit()
 
         return all_prices
