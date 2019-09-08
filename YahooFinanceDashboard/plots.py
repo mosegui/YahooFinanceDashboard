@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 matplotlib.style.use('ggplot')
 register_matplotlib_converters()
 
-def plot_prices(input_data, plot_type='candlestick'):
+def plot_prices(input_data, plot_type='candlestick'):  # TODO: imrpove plot presentation (title, metadata, etc...)
     """Plots the stocks prices day-wise and the traded volume from the inbound data
 
     Parameters
