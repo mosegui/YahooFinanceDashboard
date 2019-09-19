@@ -44,11 +44,13 @@ class YahooInterface:
         # download one day just to have access to the metadata
         today = dt.datetime.today().strftime("%Y-%m-%d")
         yesterday = (dt.datetime.today() - dt.timedelta(1)).strftime("%Y-%m-%d")
+        tomorrow = (dt.datetime.today() + dt.timedelta(1)).strftime("%Y-%m-%d")
+
         one_day_data = yahoo_cursor.get_historical_price_data(yesterday, today, 'daily')
         first_trade_date = one_day_data[yahoo_ticker]['firstTradeDate']['formatted_date']
 
         # now we can download since the beginning
-        data = yahoo_cursor.get_historical_price_data(first_trade_date, today, 'daily')
+        data = yahoo_cursor.get_historical_price_data(first_trade_date, tomorrow, 'daily')
 
         return data[yahoo_ticker]
 
