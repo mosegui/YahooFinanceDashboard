@@ -18,6 +18,7 @@ setuptools.setup(
     install_requires=[
         "yahoofinancials",
     ],
+    include_package_data=True,
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: BSD License",
