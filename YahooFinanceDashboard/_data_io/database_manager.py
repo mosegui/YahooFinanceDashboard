@@ -39,6 +39,15 @@ def _connect_db(database_dir, yahoo_ticker):
     db.close()
 
 
+def prev_weekday(adate):
+    """
+    """
+    adate -= dt.timedelta(days=1)
+    while adate.weekday() > 4:  # Mon-Fri are 0-4
+        adate -= dt.timedelta(days=1)
+    return adate
+
+
 def get_db_location(db_name):
     """Searches the passed filename in the whole package tree and returns the
     absolute path or paths of the coincident filenames
@@ -318,8 +327,9 @@ class DBManager:
         from_yahoo = web_interface.historical_prices_yahoofinancials()
         new_date_times = [item for item in from_yahoo.index if item not in historical.index]
 
-        if dt.datetime.now().hour < 18.:
-            new_date_times = new_date_times[:-1]
+        if prev_weekday(dt.date.today() + dt.timedelta(days=1)) == dt.date.today():
+            if dt.datetime.now().hour < 18.:
+                new_date_times = new_date_times[:-1]
 
         if new_date_times:
             historical = historical.append(from_yahoo.loc[new_date_times])
