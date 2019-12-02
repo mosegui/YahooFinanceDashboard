@@ -89,7 +89,7 @@ setuptools.setup(
     author_email="d.mosegui@gmail.com",
     description="API for accessing, synchronizing, managing locally and plotting Yahoo financial data",
     long_description=long_description,
-    long_description_content_type="text/markdown",
+    # long_description_content_type="text/markdown",
     url="https://github.com/mosegui/YahooFinanceDashboard",
     license='BSD3',
     packages=setuptools.find_packages(),
