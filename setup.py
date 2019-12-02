@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="YahooFinanceDashboard",
-    version="1.0.7",
+    version="1.0.8",
     author="Daniel Moseguí González",
     author_email="d.mosegui@gmail.com",
     description="API for accessing, synchronizing, managing locally and plotting Yahoo financial data",
