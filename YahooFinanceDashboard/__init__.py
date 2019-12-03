@@ -5,7 +5,7 @@ Written by Daniel Moseguí González
 GitHub: user:mosegui
 LinkedIn: https://www.linkedin.com/in/daniel-moseguí-gonzález-5aa02849/
 """
-__version__ = '1.0'  # the current jenkins build id will be appended upon building the package. Format is <major>.<minor>.<build_id>
+__version__ = '1.1'  # the current jenkins build id will be appended upon building the package. Format is <major>.<minor>.<build_id>
 
 
 name = "YahooFinanceDashboard"
