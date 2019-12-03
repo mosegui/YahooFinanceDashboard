@@ -72,8 +72,8 @@ C.MX    13906  Citigroup Inc.      MEX          Mexico    S      Equity
 
 Authors
 -------
-**Daniel Moseguí González** - Initial work - https://github.com/mosegui
+* **Daniel Moseguí González** - *Initial work* - https://github.com/mosegui
 
 License
 -------
-This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the BSD 3-Clause License - see the LICENSE file for details
