@@ -1,4 +1,4 @@
-YahooFinanceDashboard
+# YahooFinanceDashboard
 
 API for accessing, synchronizing, managing locally and plotting Yahoo financial data. 
 
