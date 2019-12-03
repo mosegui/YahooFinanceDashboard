@@ -25,7 +25,7 @@ pip install YahooFinanceDashboard
 
 Basic Usage
 
-Requesting data: Interaction with the data happens mainly over the ```YahooFinanceDashboard.Historical()``` object.
+Requesting data: Interaction with the data happens mainly over the ``YahooFinanceDashboard.Historical()`` object.
 
 
 >>> import datetime as dt
