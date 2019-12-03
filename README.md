@@ -1,9 +1,10 @@
-# YahooFinanceDashboard
+YahooFinanceDashboard
+---------------------
 
 API for accessing, synchronizing, managing locally and plotting Yahoo financial data. 
 
 Description
-
+-----------
 This Dashboard uses Yahoo ticker symbols for identifying financial securities and fetches the available historical data from Yahoo servers. The downloaded data is returned in the form of a data object wrapping a Pandas DataFrame (Fields: Open, Close, High, Low, Adj_Close, Volume). The downloaded data is stored locally in a series of SQL databases for allowing offline work with known data. When working online with new data flowing in, the Dashboard constantly compares the inbound data with the local copy and keeps updating the SQL databases appending the new points.
 
 The returned data object upon data request offers as well some simple tools/functionalities for requesting filtered data, as well as for rendering different types of financial plots (close, ohlc, candlestick).
@@ -11,22 +12,21 @@ The returned data object upon data request offers as well some simple tools/func
 The module offers as well a separate basic service for searching and filtering Yahoo ticker symbols by ticker symbol, security name, exchage, type of security, and more. The database of available Yahoo ticker symbols in which the search is carried out gets updated periodically with information of securities in most exchanges worldwide.
 
 Getting Started
-
+---------------
 These instructions will get you a copy of the project up and running on your local machine for development purposes.
 
 Prerequisites
-
+-------------
 This package works with Python 3 onwards as it uses f-strings
 
 Installing
-
-pip install YahooFinanceDashboard
+----------
+``pip install YahooFinanceDashboard``
 
 
 Basic Usage
-
+-----------
 Requesting data: Interaction with the data happens mainly over the ``YahooFinanceDashboard.Historical()`` object.
-
 
 >>> import datetime as dt
 >>> import YahooFinanceDashboard as yfd
@@ -71,9 +71,9 @@ C.MX    13906  Citigroup Inc.      MEX          Mexico    S      Equity
 
 
 Authors
-
+-------
 Daniel Moseguí González - Initial work - [mosegui](https://github.com/mosegui)
 
 License
-
+-------
 This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICENSE) file for details
