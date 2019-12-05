@@ -7,7 +7,6 @@ LinkedIn: https://www.linkedin.com/in/daniel-moseguí-gonzález-5aa02849/
 """
 __version__ = '1.1'  # the current jenkins build id will be appended upon building the package. Format is <major>.<minor>.<build_id>
 
-# A RANDOM CHANGE: DELETE
 
 name = "YahooFinanceDashboard"
 
